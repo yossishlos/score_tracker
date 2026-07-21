@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.get("/", async (req, res) => {
     const users = await getAll()
-    return res.json({})
+    return res.json(users)
 })
 
 router.get("/:id", async (req, res) => {
@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async(req, res) => {
     const result = await updateById(req.params.id, req.body)
     if (!result) return res.status(500).json({ err: "something rong" })
-    return res.json({})
+    return res.json({data: result})
 })
 
 router.delete("/:id", async (req, res) => {
