@@ -29,7 +29,7 @@ async function create(newData) {
 
 async function deleteById(id) {
     try {
-        return await collection.findOne({ _id: new ObjectId(id) })
+        return await collection.deleteOne({ _id: new ObjectId(id) })
     } catch (e) {
         console.log(e);
     }
